@@ -1,0 +1,26 @@
+.social-buttons button{
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    width: 10rem;
+}
+
+.social-buttons button img{
+    max-height: 20px;
+    display: inline;
+    padding-bottom: 4px;
+}
+
+.social-buttons button i{
+    height: 20px;
+    width: auto;
+    color:white
+}
+
+.social-buttons button.facebook{
+    background-image: linear-gradient(to right, #457fca 0%, #5691c8 51%, #457fca 100%)
+} 
+
+.social-buttons button.google{
+    background-color: rgb(224, 34, 20);
+}

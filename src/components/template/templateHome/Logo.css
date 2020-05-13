@@ -1,0 +1,23 @@
+aside.header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside.header-logo img {
+    padding: 5px 40px 10px 40px;
+    width:100%;
+    height: 100%;
+
+}
+@media(max-width: 540px){
+    aside.header-logo img {
+        width:200px;
+    }
+}
+
+@media(max-width: 768px){
+    aside.header-logo img {
+        width:300px;
+    }
+}

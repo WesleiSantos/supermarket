@@ -1,0 +1,45 @@
+@media(max-width: 540px){
+    .user-session-menu{
+        background-color: var(--color-blue);
+    }
+
+
+    .user-menu a {
+        display: inline;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .user-menu {
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    .user-menu-area{
+        width: 100%;  
+        z-index: 3;      
+    }
+
+    .user-menu .navbar-toggler{
+        background-color:transparent;
+        border: 1px solid white;
+        margin:auto;
+    }
+
+     nav .user-menu {
+        position: fixed;
+        z-index: 3;
+    }
+
+    .user-session-options-menu .navbar-nav{
+        position: absolute;
+        top:55px;
+        right: 0;
+        left: 0;
+    } 
+
+}
+
+@media(max-width: 768px){
+  
+}

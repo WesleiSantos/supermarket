@@ -1,0 +1,16 @@
+aside.user-logo {
+    background-color: var(--color-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside.user-logo img {
+    padding: 60px;
+    width:100%;
+}
+@media(max-width: 576px){
+    aside.user-logo img {
+        width:220px;
+    }
+}

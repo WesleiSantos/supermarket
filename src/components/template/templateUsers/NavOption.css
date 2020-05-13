@@ -1,0 +1,24 @@
+.user-menu .user-options-menu a:hover{
+    background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+}
+
+@media(max-width: 540px){
+    .user-menu .user-options-menu a {
+        display:block;
+        margin:auto;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(30, 144, 255);
+        border: solid #07a7e3;
+        border-radius: 5px;
+        white-space:nowrap;
+        width:85vw;
+        z-index: 3;  
+    }
+
+    .user-menu .user-options-menu{
+        z-index: 3;  
+    }
+    
+}

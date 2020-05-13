@@ -1,0 +1,33 @@
+@media(max-width: 540px){
+   .form-search {
+        display:block;
+        margin:auto;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(30, 144, 255);
+        border: solid #07a7e3;
+        border-radius: 5px;
+        white-space:nowrap;
+        width:85vw;
+    }
+
+    .form-search input[type="search"]{
+        margin-top: 0.3em;
+    }
+
+    .btn-search{
+        background-color: var(--color-blue);
+        border-color: white;
+        color: white;
+    }
+    .btn-search:hover{
+        background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
+    }
+    .btn-search span{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+}

@@ -1,0 +1,22 @@
+
+
+@media(max-width: 576px){
+    div.carousel-item{
+        height: 15em;
+        z-index: 0;
+    }
+
+    div.carousel-inner{
+        border-radius:15px;
+        z-index: 0;
+    }
+
+    .carousel-indicators{
+        z-index: 0;
+    }
+
+}
+
+@media(max-width: 768px){
+  
+}

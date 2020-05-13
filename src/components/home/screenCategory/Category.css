@@ -1,0 +1,82 @@
+@media (max-width: 540px) {
+  .category .row {
+    padding: 0 15px;
+    border-radius: 15px;
+  }
+
+  main.category div.row div.col-sm-6{
+    margin: 1px;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(1) {
+    border-radius: 15px 0 0 0;
+    background: url("../../../assets/IMAGENS/opcoes/paes.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(2) {
+    border-radius: 0 15px 0 0;
+    background: url("../../../assets/IMAGENS/opcoes/carne.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(3) {
+    background: url("../../../assets/IMAGENS/opcoes/bebidas.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(4) {
+    background: url("../../../assets/IMAGENS/opcoes/bomboniere.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(5) {
+    background: url("../../../assets/IMAGENS/opcoes/cosmeticos.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(6) {
+    background: url("../../../assets/IMAGENS/opcoes/enlatadados.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(7) {
+    background: url("../../../assets/IMAGENS/opcoes/higiene.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(8) {
+    background: url("../../../assets/IMAGENS/opcoes/verduras.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(9) {
+    background: url("../../../assets/IMAGENS/opcoes/massas.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+  main.category div.row div.col-sm-6:nth-child(10) {
+    background: url("../../../assets/IMAGENS/opcoes/pao.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(11) {
+    border-radius: 0 0 0 15px;
+    background: url("../../../assets/IMAGENS/opcoes/limpeza.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(12) {
+    border-radius: 0 0 15px 0;
+    background: url("../../../assets/IMAGENS/opcoes/tomato.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(13) {
+    border-radius: 0 0 0 15px;
+    background: url("../../../assets/IMAGENS/opcoes/biscoitos.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+
+  main.category div.row div.col-sm-6:nth-child(14) {
+    border-radius: 0 0 15px 0 ;
+    background: url("../../../assets/IMAGENS/opcoes/cozinha.jpg") center/cover;
+    background-repeat: no-repeat;
+  }
+ 
+}
+@media (max-width: 768px) {
+}

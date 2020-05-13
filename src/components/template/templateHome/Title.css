@@ -1,0 +1,17 @@
+.title h1{
+    text-align: center;
+    color: white;
+    padding: 0 2rem
+}
+
+.title{
+    background-color: var(--color-blue);
+    border-radius: 100px;
+}
+
+.material-icons{
+    text-align: center;
+    color: white;
+    font-size:xx-large;
+    vertical-align: middle;
+}
