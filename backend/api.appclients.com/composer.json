@@ -13,10 +13,18 @@
         "fruitcake/laravel-cors": "^1.0",
         "fzaninotto/faker": "^1.9",
         "guzzlehttp/guzzle": "^6.3",
+        "illuminate/auth": "^7.11",
+        "illuminate/http": "^7.11",
+        "illuminate/session": "^7.11",
+        "illuminate/support": "^7.11",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "oscarafdev/migrations-generator": "2.0.19",
-        "reliese/laravel": "^0.0.15"
+        "reliese/laravel": "^0.0.15",
+        "symfony/http-foundation": "^5.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/mime": "^5.0",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -33,7 +33,7 @@ class Users extends Controller
     {
         $post = new User;
 
-        $post->nome = $request->input('nome');
+        $post->nome = $request->input('name');
         $post->email = $request->input('email');
         $post->telefone = $request->input('telefone');
         $post->cpf = $request->input('cpf');

@@ -19,7 +19,8 @@ class CreateUserTable extends Migration {
 			$table->string('name', 45);
 			$table->string('surname', 45);
 			$table->string('email', 45)->unique('Email_UNIQUE');
-			$table->string('password', 45);
+			$table->string('password', 60);
+			$table->rememberToken();			
 			$table->integer('id_type_user')->index('fk_user_1_idx');
 			$table->primary(['id','id_type_user']);
 		});
