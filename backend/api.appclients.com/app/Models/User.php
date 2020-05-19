@@ -40,6 +40,7 @@ class User extends Authenticatable implements JWTSubject
 	use Notifiable;
 	protected $table = 'user';
 	public $timestamps = false;
+	protected $primaryKey = 'id';
 
 	protected $casts = [
 		'id_type_user' => 'int','email_verified_at' => 'datetime',
@@ -50,7 +51,8 @@ class User extends Authenticatable implements JWTSubject
 		'name',
 		'surname',
 		'email',
-		'password'
+		'password',
+		'id_type_user'
 	];
 
 	public function type_user()
@@ -107,6 +109,7 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims()
     {
-        return ['email' => $this->email];
+		//return ['email' => $this->email];
+		return [];
     }
 }

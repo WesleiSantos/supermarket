@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('index');
     });
@@ -21,5 +21,6 @@ Route::get('/api/v1/users/{id?}', 'Users@index');
 Route::post('/api/v1/users', 'Users@store');
 Route::post('/api/v1/users/{id}', 'Users@update');
 Route::delete('/api/v1/users/{id}', 'Users@destroy');
+*/
 
-
+Route::get('session', 'SessionController@session');

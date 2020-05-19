@@ -6,7 +6,7 @@
 
     .user-menu a {
         display: inline;
-        padding: 10px;
+        padding: 5px;
         margin: 0px;
     }
 
@@ -33,7 +33,7 @@
 
     .user-session-options-menu .navbar-nav{
         position: absolute;
-        top:55px;
+        top:48px;
         right: 0;
         left: 0;
     } 

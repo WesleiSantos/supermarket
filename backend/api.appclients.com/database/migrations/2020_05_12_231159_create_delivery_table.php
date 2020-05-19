@@ -15,7 +15,7 @@ class CreateDeliveryTable extends Migration {
 	{
 		Schema::create('delivery', function(Blueprint $table)
 		{
-			$table->integer('id', true);
+			$table->integer('id');
 			$table->time('time_delivery');
 			$table->float('tariff_delivery', 10, 0);
 			$table->integer('id_order')->index('fk_delivery_1_idx');

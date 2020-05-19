@@ -1,29 +1,12 @@
-import React from "react";
+import React,{Component} from "react";
 import Register from "./Register.css";
+import { withRouter } from "react-router-dom";
 
-export default (props) => (
-  <form className="form-register">
+class FormRegisterAddress extends Component {
+  render(){
+    return(
+      <form className="form-register-address">
     <div className="form-row justify-content-center">
-      <div class="col-6 ">
-        <label for="inputName">Name:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputName"
-          aria-describedby="nameHelp"
-          placeholder="Nome"
-        />
-      </div>
-      <div class="col-6 ">
-        <label for="inputSurname">Sobrenome:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputSurname"
-          aria-describedby="surnameHelp"
-          placeholder="Sobrenome"
-        />
-      </div>
       <div class="col-8">
         <label for="inputDistrict">Bairro:</label>
         <input
@@ -65,5 +48,14 @@ export default (props) => (
         />
       </div>
     </div>
+    <div className="form-row justify-content-center">
+          <button type="submit" class="btn btn-next btn-primary mr-2 mt-5">
+             Confirmar
+          </button>
+        </div>
   </form>
-);
+    )
+  }
+}
+
+export default withRouter(FormRegisterAddress);

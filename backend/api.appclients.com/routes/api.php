@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::get('users', 'Api\\UserControler@index');
 Route::group([
 
     'middleware' => 'api',
@@ -28,8 +27,28 @@ Route::group([
 ], function ($router) {
     Route::post('register', 'AuthController@register');
     Route::post('login', 'AuthController@login');
+   
+});
+//Route::post('register', 'Api\\AuthController@register');
+
+
+Route::group([
+    'middleware' => 'jwt.verify',
+    'namespace' => 'Api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    Route::get('users', 'UserControler@index');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
-
+    Route::get('me', 'AuthController@me');
 });
+
+    /*Route::post('register', 'Api\\AuthController@register');
+    Route::post('login', 'Api\\AuthController@authenticate');
+    Route::get('open', 'DataController@open');
+
+    Route::group(['middleware' => ['jwt.verify']], function() {
+        //Route::get('user', 'UserController@getAuthenticatedUser');
+        //Route::get('closed', 'DataController@closed');
+    });*/

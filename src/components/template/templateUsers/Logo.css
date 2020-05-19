@@ -11,6 +11,6 @@ aside.user-logo img {
 }
 @media(max-width: 576px){
     aside.user-logo img {
-        width:220px;
+        width:17em;
     }
 }

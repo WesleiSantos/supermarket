@@ -6,6 +6,5 @@ import FormRegisterLogin from './FormRegisterLogin'
 
 export default props=>
 <LoginTemplate title="Cadastro" btnPath="/login">
-    <FormRegisterAddress/>
     <FormRegisterLogin/>
 </LoginTemplate>

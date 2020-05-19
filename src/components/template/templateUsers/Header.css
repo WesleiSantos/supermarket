@@ -1,9 +1,19 @@
 header.user-header{
-    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--color-blue);
     padding: 0px 15px;
     overflow: hidden;
     white-space: nowrap;
     box-shadow: var(--shadow);
+}
+
+.user-header a {
+    margin-left:auto;
+}
+.user-header a i{
+    color: white;
 }
 
 header.user-header h1 {

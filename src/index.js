@@ -5,10 +5,11 @@ import App from './main/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import {Store} from './store'
+import Routes from "../src/main/Routes";
 
 ReactDOM.render(
   <Provider store={Store}>
-    <App />
+      <Routes/>
     </Provider>,
   document.getElementById('root')
 );

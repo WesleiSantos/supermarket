@@ -22,6 +22,7 @@
         grid-template-columns: var(--aside-width) 1fr;
         grid-template-rows: 
             var(--header-height)
+            var(--header-height)
             1fr
             var(--footer-height);
         grid-template-areas: 
@@ -36,12 +37,14 @@
 @media(max-width: 576px){
     .user{
         grid-template-rows:
+        5em
         var(--header-height)
         var(--menu-top-heigth)
         1fr
         var(--footer-height);
     grid-template-columns: 1fr;
         grid-template-areas:
+            "header"
             "logo"
             "menu"
             "content"
@@ -56,6 +59,7 @@
 
 .user header.user-header{
     grid-area: header;
+
 }
 
 .user aside.user-menu-area{

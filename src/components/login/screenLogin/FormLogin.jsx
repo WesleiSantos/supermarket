@@ -1,29 +1,65 @@
-import React from "react";
+import React,{Component} from "react";
 import './FormLogin.css'
 
 import ImgFacebook from '../../../assets/ICONES/facebook.png'
-import ImgGoogle from '../../../assets/ICONES/icons8-google-logo-16.png'
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { login } from "../../../main/auth";
+import api from "../../../api";
 
-import { useHistory } from "react-router-dom";
+class FormLogin extends Component{
+  state = {
+    email: "",
+    password: "",
+    error: ""
+  };
 
-export default function FormLogin(){
-  const history = useHistory();
-  function handleClick() {
-    history.push("/user/dashboard");
+  constructor(props){
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleSignIn = this.handleSignIn.bind(this)
+    //this.history=useHistory();
   }
+
+
+  handleClick() {  
+    //this.history.push("/user/dashboard");
+  }
+
+  handleSignIn = async e => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    if (!email || !password) {
+      this.setState({ error: "Preencha e-mail e senha para continuar!" });
+    } else {
+      try {
+        const response = await api.post("/auth/login", { email, password });
+        console.log(response)
+        login(response.data.access_token);
+        this.props.history.push("/user/dashboard");
+      } catch (err) {
+        this.setState({
+          error:
+            "Login ou senha inválidos."
+        });
+      }
+    }
+  };
+
+
+  render(){
     return(
-      <form className="form-login">
+      <form className="form-login" onSubmit={this.handleSignIn}>
       <div className="form-row justify-content-center">
         <div className="m-2 col-auto social-buttons">
           <button className="facebook m-2 btn font-weight-bold">
-            <img src={ImgFacebook}></img> Facebook{" "}
+            <img src={ImgFacebook} alt="facebook"></img> Facebook{" "}
           </button>
           <button className="google m-2 btn font-weight-bold">
           <i class="fa fa-google-plus" aria-hidden="true"></i>  Google{" "}
           </button>
         </div>
       </div>
+      {this.state.error && <div class="alert alert-danger" role="alert">{this.state.error}</div>}
       <div className="form-row justify-content-center">
         <div class="col-11 mt-2">
           <label for="inputEmail1">Email:</label>
@@ -33,6 +69,7 @@ export default function FormLogin(){
             id="inputEmail"
             aria-describedby="emailHelp"
             placeholder="email@exemplo"
+            onChange={e => this.setState({ email: e.target.value })}
           />
         </div>
         <div class="col-11 mt-2">
@@ -42,6 +79,7 @@ export default function FormLogin(){
             class="form-control"
             id="inputPassword1"
             placeholder="senha"
+            onChange={e => this.setState({ password: e.target.value })}
           />
         </div>
         <div class="col-11 mt-2">
@@ -55,7 +93,7 @@ export default function FormLogin(){
       </div>
   
       <div className="form-row justify-content-center">
-        <button type="button" onClick={handleClick} class="btn btn-primary mt-2 mb-4">
+        <button type="submit" class="btn btn-primary mt-2 mb-4">
           Entrar
         </button>
       </div>
@@ -69,4 +107,7 @@ export default function FormLogin(){
       </div>
     </form>
     )
+  }
 }
+
+export default withRouter(FormLogin);

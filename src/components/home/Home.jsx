@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 import Home from "../../components/template/templateHome/Home.css"
 
@@ -19,7 +21,10 @@ export default (props) => (
   <React.Fragment>
   <div class="home">
       <Main>
-          <Header />
+          <Header >
+            <Link to=""><i className="fa fa-shopping-cart fa-2x pr-5"></i></Link>
+            <Link to="/login"><i className="fa fa-user-circle-o fa-2x"></i></Link>
+          </Header>
           <Logo />
           <Nav />
           <Title title="Promoções" icon="attach_money"></Title>

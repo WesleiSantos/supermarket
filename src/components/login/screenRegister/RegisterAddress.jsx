@@ -4,6 +4,6 @@ import LoginTemplate from '../../template/templateLogin/LoginTemplate'
 import FormRegisterAddress from './FormRegisterAddress'
 
 export default props=>
-<LoginTemplate title="Cadastro" btnPath="/login">
+<LoginTemplate title="Dados complementares" btnPath="/login">
     <FormRegisterAddress/>
 </LoginTemplate>     

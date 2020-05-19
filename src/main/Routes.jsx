@@ -1,7 +1,8 @@
 import React from 'react'
-import {BrowserRouter,Switch, Route, Redirect } from 'react-router-dom'
+import {BrowserRouter as Router,Switch, Route, Redirect } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 
+import App from './App'
 import Home from '../components/home/Home'
 import Login from '../components/login/screenLogin/Login'
 import Register from '../components/login/screenRegister/RegisterLogin'
@@ -15,15 +16,18 @@ import ManagerPromotions from '../components/users/managerPromotions/ManagerProm
 import ManagerOrders from '../components/users/managerOrders/ManagerOrders'
 import Log from '../components/users/log/Log'
 import ManagerUser from '../components/users/managerUsers/ManagerUser'
+import RegisterAddress  from '../components/login/screenRegister/RegisterAddress'
 
 export default props =>
-  <BrowserRouter>  
+  <Router>  
+  <App>
     <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/changePassword' component={ChangePassword}/>
-        <Route path='/user/dashboard' component={DashboardUser} />
+        <PrivateRoute path='/address' component={RegisterAddress} />
+        <PrivateRoute path='/user/dashboard' component={DashboardUser} />
         <PrivateRoute path='/user/registerProduct' component={RegisterProduct} />
         <PrivateRoute path='/user/managerProducts' component={ManagerProducts} />
         <PrivateRoute path='/user/managerPromotions' component={ManagerPromotions} />
@@ -32,4 +36,5 @@ export default props =>
         <PrivateRoute path='/user/managerUser' component={ManagerUser} />
         <Redirect from='*' to='/' />
     </Switch>
-    </BrowserRouter>
+    </App>
+    </Router>
