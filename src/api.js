@@ -9,6 +9,8 @@ api.interceptors.request.use(async config => {
   const token = getToken();
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
+    config.headers.post['Content-Type'] = "multipart/form-data"
+    //config.headers.post['Content-type']= 'application/x-www-form-urlencoded'
   }
   return config;
 });

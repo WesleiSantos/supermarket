@@ -3,10 +3,10 @@ import React from 'react'
 import NavOption from './NavOption'
 
 export default (props) => (
-    <session className=" user-session-menu">
+    <session className="user-session-menu">
     <nav className="user-menu navbar navbar-expand-md navbar-dark ">
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -14,10 +14,10 @@ export default (props) => (
         aria-expanded="true"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <section class="user-session-options-menu">
-        <div class="navbar-nav  collapse  navbar-collapse" id="navbarNav">
+      <section className="user-session-options-menu">
+        <div className="navbar-nav  collapse  navbar-collapse" id="navbarNav">
           <NavOption
             path='/user/dashboard'
             option="INÍCIO"

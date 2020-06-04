@@ -1,3 +1,4 @@
+/*
 @media(max-width: 768px){
     .user{
         grid-template-rows:
@@ -32,12 +33,12 @@
         height: 100vh;
         background-color: #f5f5f5;
     }
-}
+}*/
 
 @media(max-width: 576px){
     .user{
         grid-template-rows:
-        5em
+        4em
         var(--header-height)
         var(--menu-top-heigth)
         1fr
@@ -52,17 +53,15 @@
     }
 }
 
-
-.user aside.user-logo {
-    grid-area:logo;
-}
-
 .user header.user-header{
     grid-area: header;
-
 }
 
-.user aside.user-menu-area{
+.user aside.user-logo {
+    grid-area: logo;
+}
+
+.user aside.user-menu{
     grid-area: menu;
 }
 

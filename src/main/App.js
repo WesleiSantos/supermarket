@@ -1,43 +1,48 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "./App.css";
 import { withRouter } from "react-router-dom";
 import User from "../components/users/Users";
 import api from "../api";
+import Messages from "../components/message/message";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { handleLogout } from "../actions/actionLogin";
 
+const App = (props) => {
+  return props.type_user === 1 || props.type_user === undefined ? (
+    <div className="app">
+    <Messages />
+    {props.children}
+    </div>
+  ) : (
+    <div className="app">
+      <Messages />
+      <User {...props} handleClickLogout={props.handleLogout}>
+        {props.children}
+      </User>
+    </div>
+  );
+};
 
-class App extends Component {
-  state={
-    name:'',
-    surname:'',
-    id:'',
-    type_user:'',
-    date:'',
-    time:'',
-  }
-  componentWillMount(){
-    api.get("/auth/me")
-    .then((response) => {this.setState({name:response.data.name, surname:response.data.surname, id:response.data.id, type_user:response.data.id_type_user}); console.log(response)})
-    .catch(error=>{console.log(error)})
-  }
-  render() {
-    if(this.state.type_user===1 || this.state.type_user===''){
-      return(
-        <div className="app">
-        {this.props.children}
-        </div>
-      )
-    }else{
-      return(
-        <div className="app">
-        <User user={this.state.type_user} name={this.state.name} surname={this.state.surname}>
-            {this.props.children}
-        </User>
-        </div>
-      )
-    }
-  }
-}
+const mapStateToProps = (state) => ({
+  name: state.login.name,
+  surname: state.login.surname,
+  id: state.login.id,
+  email: state.login.email,
+  type_user: state.login.type_user,
+  date: state.login.date,
+  time: state.login.time,
+  loading: state.login.loading,
+});
 
-export default withRouter(App);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      handleLogout,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

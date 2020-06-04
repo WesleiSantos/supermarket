@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './main/App';
@@ -7,9 +7,12 @@ import { Provider } from 'react-redux'
 import {Store} from './store'
 import Routes from "../src/main/Routes";
 
+
 ReactDOM.render(
   <Provider store={Store}>
+      <Suspense fallback={ <h1>Rendering...</h1> }>
       <Routes/>
+      </Suspense>
     </Provider>,
   document.getElementById('root')
 );

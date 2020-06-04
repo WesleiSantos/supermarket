@@ -9,7 +9,7 @@ export default class Login extends Component {
       <main className="login align-middle">
         <div className="content">
           <div className="header-login">
-            <Link to={this.props.btnPath}><span class="material-icons text-primary">reply</span> </Link>
+            <Link to={this.props.btnPath}><span className="material-icons text-primary">reply</span> </Link>
             <Title title={this.props.title} icon={this.props.icon} />
           </div>
           <div className="contentLogin">{this.props.children}</div>

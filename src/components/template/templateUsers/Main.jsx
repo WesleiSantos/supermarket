@@ -1,10 +1,9 @@
 import './Main.css'
 import React from 'react'
-import Header from './Header'
 export default props =>
     <React.Fragment>
         <main className="user-main">
-            <div className="p-3 mt-3">
+            <div className="main-box-shadow p-5 mt-3">
                 {props.children}
             </div>
         </main>

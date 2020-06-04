@@ -16,7 +16,7 @@ class CreateProductTable extends Migration {
 		Schema::create('product', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('name', 100);
+			$table->string('description_product', 100);
 			$table->enum('unity_sale', array('UN','KG','MG','G','L'));
 			$table->float('value_unitary', 10, 0);
 			$table->integer('category')->index('fk_product_1_idx');

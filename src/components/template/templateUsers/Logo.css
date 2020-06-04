@@ -6,11 +6,11 @@ aside.user-logo {
 }
 
 aside.user-logo img {
-    padding: 60px;
     width:100%;
 }
 @media(max-width: 576px){
     aside.user-logo img {
-        width:17em;
+        height: 7em;
+        width:10em;
     }
 }

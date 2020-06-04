@@ -42,7 +42,13 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
+    Route::get('listProducts', 'ProductsController@index');
+    Route::post('registerProducts', 'ProductsController@store');
+    Route::post('addImage', 'ProductsController@addImageProduct');
+    Route::put('addImage', 'ProductsController@addImageProduct');
 });
+
+
 
     /*Route::post('register', 'Api\\AuthController@register');
     Route::post('login', 'Api\\AuthController@authenticate');

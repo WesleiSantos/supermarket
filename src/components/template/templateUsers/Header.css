@@ -1,16 +1,37 @@
-header.user-header{
+header.user-header div{
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: end;
     background-color: var(--color-blue);
-    padding: 0px 15px;
     overflow: hidden;
     white-space: nowrap;
-    box-shadow: var(--shadow);
 }
 
-.user-header a {
+.user-header .header:nth-child(1) {
+    padding: 10px;
+}
+
+.user-header .header:nth-child(2) {
+    margin: 10px;
+}
+
+.user-header div.header:nth-child(3) {
+    margin: 10px;
+}
+
+.user-header .header .incons a{
+    padding: 10px;
+}
+
+.user-header div .description {
     margin-left:auto;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-header div .description .item{
+    height: 23px;
 }
 .user-header a i{
     color: white;

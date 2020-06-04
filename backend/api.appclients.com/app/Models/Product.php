@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Product
  * 
  * @property int $id
- * @property string $name
+ * @property string $description_product
  * @property string $unity_sale
  * @property float $value_unitary
  * @property int $category
@@ -41,7 +41,7 @@ class Product extends Model
 	];
 
 	protected $fillable = [
-		'name',
+		'description_product',
 		'unity_sale',
 		'value_unitary',
 		'category',

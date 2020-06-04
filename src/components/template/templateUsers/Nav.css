@@ -3,6 +3,10 @@
         background-color: var(--color-blue);
     }
 
+    .user-menu{
+        background-color: var(--color-blue);
+    }
+
 
     .user-menu a {
         display: inline;
