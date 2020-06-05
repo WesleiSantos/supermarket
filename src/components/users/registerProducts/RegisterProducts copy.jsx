@@ -4,6 +4,8 @@ import "./RegisterProduct.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Main from "../../template/templateUsers/Main";
+import { Link, withRouter } from "react-router-dom";
+import LabelAndInput from '../../form/labelAndInput'
 import {
   addProductDescriptionMeasure,
   addProductUnity,

@@ -10,7 +10,7 @@ const Register  = lazy(() => import('../components/login/screenRegister/Register
 const ChangePassword  = lazy(() => import('../components/login/screenChangePassword/ChangePassword'))
 const Users  = lazy(() => import('../components/users/Users'))
 const DashboardUser   = lazy(() => import('../components/users/dashboard/Home'))
-const RegisterProduct  = lazy(() => import('../components/users/registerProducts/RegisterProducts'))
+const RegisterProduct  = lazy(() => import('../components/users/registerProducts/RegisterProduct'))
 const ManagerProducts  = lazy(() => import('../components/users/updateRegisterProduct/UpdateProduct'))
 const ManagerPromotions  = lazy(() => import('../components/users/managerPromotions/ManagerPromotions'))
 const ManagerOrders  = lazy(() => import('../components/users/managerOrders/ManagerOrders'))
