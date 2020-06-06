@@ -1,6 +1,5 @@
 import React from 'react'
 import Main from '../../template/templateUsers/Main'
-import User from '../Users'
 export default props=>
 
 <Main icon="home" title="Início"

@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './main/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import {Store} from './store'
 import Routes from "../src/main/Routes";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
 
 ReactDOM.render(
   <Provider store={Store}>

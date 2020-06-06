@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Col } from 'reactstrap';
 
 export default class Grid extends Component {
 
