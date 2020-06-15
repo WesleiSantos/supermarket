@@ -1,10 +1,7 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "font-awesome/css/font-awesome.min.css";
 import React, { Component } from "react";
 
 import "../../components/template/templateUsers/Users.css";
 
-import Main from "../template/templateUsers/Main";
 import Header from "../template/templateUsers/Header";
 import Logo from "../template/templateUsers/Logo";
 import Nav from "../template/templateUsers/Nav";

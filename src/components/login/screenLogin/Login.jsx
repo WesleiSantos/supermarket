@@ -1,6 +1,6 @@
 import React from "react";
 import LoginTemplate from "../../template/templateLogin/LoginTemplate";
-import FormLogin from "./FormLogin";
+const FormLogin =  import("./FormLogin");
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loginUser } from "../../../actions/actionLogin";

@@ -5,7 +5,6 @@ import { reduxForm, Field } from 'redux-form'
 import { Link, withRouter } from "react-router-dom";
 import LabelAndInput from '../../form/labelAndInput'
 import { connect } from "react-redux";
-import history from "../../../main/history";
 
 class FormLogin extends Component{
 
@@ -16,7 +15,6 @@ class FormLogin extends Component{
   
   render(){
     const { handleSubmit,  readOnly } = this.props
-    console.log(this.props.loading)
     return(
       <form className="form-login"  role='form' onSubmit={handleSubmit}>
       <div className="form-row justify-content-center">
@@ -70,4 +68,4 @@ const mapStateToProps = state => ({
   loading:state.login.loading
 })
 FormLogin = reduxForm({form:'login', destroyOnUnmount: false})(FormLogin);
-export default connect(mapStateToProps, null)(FormLogin)
+export default connect(mapStateToProps, null)(withRouter(FormLogin))

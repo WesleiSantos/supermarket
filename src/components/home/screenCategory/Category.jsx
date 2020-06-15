@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import CategoryList from "./Category-List";
-import Category from './Category.css'
+import './Category.css'
 
-export default class CategoryView extends Component {
-  render() {
+const Category = props =>{
     const nameClass = "col-sm-6 col-md-6 col-lg-6 col-xl-6";
     return (
       <React.Fragment>
         <main className="category">
           <div className="container">
-          {this.props.children}
+          {props.children}
           <div class="row align-items-center justify-content-around">
               <CategoryList class={nameClass} title="Alimentos Básicos" description="" />
               <CategoryList class={nameClass} title="Açougue" description="" />
@@ -31,4 +30,6 @@ export default class CategoryView extends Component {
       </React.Fragment>
     );
   }
-}
+
+
+  export default Category;

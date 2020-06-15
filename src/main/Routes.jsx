@@ -1,22 +1,21 @@
-import React,{ Suspense, lazy } from 'react'
+import React from 'react'
 import {Router} from 'react-router'
 import {Switch, Route, Redirect } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import history from './history'
-const App = lazy(() => import( './App'))
-const Home  = lazy(() => import('../components/home/Home'))
-const Login  = lazy(() => import('../components/login/screenLogin/Login'))
-const Register  = lazy(() => import('../components/login/screenRegister/RegisterLogin'))
-const ChangePassword  = lazy(() => import('../components/login/screenChangePassword/ChangePassword'))
-const Users  = lazy(() => import('../components/users/Users'))
-const DashboardUser   = lazy(() => import('../components/users/dashboard/Home'))
-const RegisterProduct  = lazy(() => import('../components/users/registerProducts/RegisterProduct'))
-const ManagerProducts  = lazy(() => import('../components/users/updateRegisterProduct/UpdateProduct'))
-const ManagerPromotions  = lazy(() => import('../components/users/managerPromotions/ManagerPromotions'))
-const ManagerOrders  = lazy(() => import('../components/users/managerOrders/ManagerOrders'))
-const Log  = lazy(() => import('../components/users/log/Log'))
-const ManagerUser  = lazy(() => import('../components/users/managerUsers/ManagerUser'))
-const RegisterAddress   = lazy(() => import('../components/login/screenRegister/RegisterAddress'))
+import App from './App'
+import Home from '../components/home/Home'
+import Login from '../components/login/screenLogin/Login'
+import Register from '../components/login/screenRegister/RegisterLogin'
+import ChangePassword from '../components/login/screenChangePassword/ChangePassword'
+import DashboardUser  from '../components/users/dashboard/Home'
+import RegisterProduct from '../components/users/registerProducts/RegisterProduct'
+import ManagerProducts from '../components/users/updateRegisterProduct/UpdateProduct'
+import ManagerPromotions from '../components/users/managerPromotions/ManagerPromotions'
+import ManagerOrders from '../components/users/managerOrders/ManagerOrders'
+import Log from '../components/users/log/Log'
+import ManagerUser from '../components/users/managerUsers/ManagerUser'
+import RegisterAddress from  '../components/login/screenRegister/RegisterAddress'
 
 export default props =>
   <Router history = {history}>  
