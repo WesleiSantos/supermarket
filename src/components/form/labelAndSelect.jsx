@@ -3,7 +3,7 @@ import Grid from "../layout/grid";
 
 export default (props) => (
   <Grid cols={props.cols}>
-    <div className="form-group">
+     <div className={props.classGroup}>
       <label htmlFor={props.name} className={props.labelClass} >{props.label}</label>
       <select
         {...props.select}

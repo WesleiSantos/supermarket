@@ -1,6 +1,6 @@
 import './Logo.css'
 import React from 'react'
-import logo from '../../../assets/imgs/logo.png'
+const logo = require('../../../assets/imgs/logo.png')
 import {Link} from 'react-router-dom'
 
 export default props =>

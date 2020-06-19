@@ -30,11 +30,11 @@ class FormLogin extends Component{
       <div className="form-row justify-content-center">
         <div className="col-11 mt-2">
         <Field name='email' component={LabelAndInput} readOnly={readOnly}
-            label='Email' cols='12' placeholder='email@exemplo.com' type="email" />      
+            label='Email' cols='12' placeholder='email@exemplo.com' type="email"  inputClass="form-control" />      
         </div>
         <div className="col-11 mt-2">
           <Field name='password' component={LabelAndInput} readOnly={readOnly}
-            label='Senha' cols='12' placeholder='******' type="password"/> 
+            label='Senha' cols='12' placeholder='******' type="password" inputClass="form-control"/> 
         </div>
         <div className="col-11 mt-2">
         <div className="form-check">

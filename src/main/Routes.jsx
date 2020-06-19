@@ -26,7 +26,7 @@ export default props =>
         <Route path='/register' component={Register} />
         <Route path='/changePassword' component={ChangePassword}/>
         <PrivateRoute path='/address' component={RegisterAddress} />
-        <PrivateRoute path='/user/dashboard' component={DashboardUser} />
+        <Route path='/user/dashboard' component={DashboardUser} />
         <PrivateRoute path='/user/registerProduct' component={RegisterProduct} />
         <PrivateRoute path='/user/managerProducts' component={ManagerProducts} />
         <PrivateRoute path='/user/managerPromotions' component={ManagerPromotions} />

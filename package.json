@@ -31,12 +31,13 @@
     "react-router-redux": "^4.0.8",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1",
+    "redux-persist": "^6.0.0",
     "source-map-support": "^0.5.19",
     "style-loader": "^1.2.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "serve": "webpack-dev-server --progress --colors --inline --hot",
+    "serve": "webpack-dev-server --progress --colors --inline --hot -d --watch",
     "production": "webpack --progress -p",
     "build": "cross-env NODE_ENV=production webpack",
     "test": "react-scripts test",
@@ -100,6 +101,7 @@
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
+    "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.11.0"
   }
 }

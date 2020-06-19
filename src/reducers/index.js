@@ -8,7 +8,7 @@ import { routerReducer } from 'react-router-redux';
 export const Reducers = combineReducers({
     product: productReducer,
     login: loginReducer,
-    form:formReducer,
+    form: formReducer,
     toastr: toastrReducer,
     routing: routerReducer
 })

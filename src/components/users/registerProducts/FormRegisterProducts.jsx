@@ -31,14 +31,14 @@ class RegisterProduct extends Component {
     this.submitHandle = this.submitHandle.bind(this);
   }
 
-  actionCheckBox = (e) => {};
+  actionCheckBox = (e) => { };
 
   submitHandle = (e) => {
     e.preventDefault();
     this.props.addProduct(this.props.product);
   };
 
-  increaseQuantityHandle = (e) => {};
+  increaseQuantityHandle = (e) => { };
 
   handleFile = (files, event) => {
     event.preventDefault();
@@ -55,66 +55,65 @@ class RegisterProduct extends Component {
   render() {
     return (
       <Fragment>
+        <h2>Cadastro de produtos</h2>
         <form className="form-row">
-          <h2>Cadastro de produtos</h2>
-          <div class="form-group col-12 d-flex flex-column">
-            <Field
-              name="category"
-              component={LabelAndSelect}
-              cols="12"
-              id="category"
-              label="Categoria"
-            >
-              <option selected={this.props.product.category ? "" : "selected"}>
-                selecione
+          <Field
+            classGroup='form-group'
+            name="category"
+            component={LabelAndSelect}
+            cols="12 12 12 12"
+            id="category"
+            label="Categoria"
+          >
+            <option selected={this.props.product.category ? "" : "selected"}>
+              selecione
               </option>
-              <option value="1">Açougue</option>
-              <option value="2">Alimentos básicos</option>
-              <option value="3">Bebidas</option>
-              <option value="4">Bomboniere</option>
-              <option value="5">Cosméticos</option>
-              <option value="6">Enlatados</option>
-              <option value="7">Higiêne</option>
-              <option value="8">Hortifrute</option>
-              <option value="9">Massa</option>
-              <option value="10">Padaria</option>
-              <option value="11">Produtos de limpeza</option>
-              <option value="12">Temperos</option>
-              <option value="13">Utensílios domésticos</option>
-            </Field>
-          </div>
+            <option value="1">Açougue</option>
+            <option value="2">Alimentos básicos</option>
+            <option value="3">Bebidas</option>
+            <option value="4">Bomboniere</option>
+            <option value="5">Cosméticos</option>
+            <option value="6">Enlatados</option>
+            <option value="7">Higiêne</option>
+            <option value="8">Hortifrute</option>
+            <option value="9">Massa</option>
+            <option value="10">Padaria</option>
+            <option value="11">Produtos de limpeza</option>
+            <option value="12">Temperos</option>
+            <option value="13">Utensílios domésticos</option>
+          </Field>
         </form>
         <form className="form-row">
-            <Field
-              classGroup='form-group'
-              name="email"
-              component={LabelAndInput}
-              inputClass={'form-control'}
-              readOnly={this.props.readOnly}
-              label="Codigo"
-              cols="6 6 6 6"
-              placeholder="00"
-              type="number"
-              value={this.props.product.code ? this.props.product.code : ""}
-              onChange={this.props.addProductCode}
-            />
-            <Field
-              classGroup='form-group'
-              name="description"
-              inputClass={'form-control'}
-              component={LabelAndInput}
-              readOnly={this.props.readOnly}
-              label="Descrição de produto"
-              cols="6 6 6 6"
-              placeholder="Descrição.."
-              type="text"
-              value={
-                this.props.product.description_product
-                  ? this.props.product.description_product
-                  : ""
-              }
-              onChange={this.props.addProductDescription}
-            />
+          <Field
+            classGroup='form-group'
+            name="email"
+            component={LabelAndInput}
+            inputClass={'form-control'}
+            readOnly={this.props.readOnly}
+            label="Codigo"
+            cols="6 6 6 6"
+            placeholder="00"
+            type="number"
+            value={this.props.product.code ? this.props.product.code : ""}
+            onChange={this.props.addProductCode}
+          />
+          <Field
+            classGroup='form-group'
+            name="description"
+            inputClass={'form-control'}
+            component={LabelAndInput}
+            readOnly={this.props.readOnly}
+            label="Descrição de produto"
+            cols="6 6 6 6"
+            placeholder="Descrição.."
+            type="text"
+            value={
+              this.props.product.description_product
+                ? this.props.product.description_product
+                : ""
+            }
+            onChange={this.props.addProductDescription}
+          />
         </form>
         <form className="form-row">
           <fieldset class="form-group col-6">
@@ -122,34 +121,34 @@ class RegisterProduct extends Component {
               Oferta Promocional
             </legend>
             <div class="col-12 d-flex flex-row pl-0">
-                <Field
-                  classGroup='form-check'
-                  inputClass="form-check-input"
-                  name="gridRadios"
-                  component={LabelAndInput}
-                  readOnly={this.props.readOnly}
-                  label="Sim"
-                  labelClass="form-check-label"
-                  cols="6"
-                  type="radio"
-                  value="yes"
-                  checked={"" ? "checked" : ""}
-                  onClick={this.actionCheckBox}
-                />
-              <div class="form-check col-6">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="gridRadios"
-                  id="gridRadios2"
-                  value="no"
-                  checked={"" ? "" : "checked"}
-                  onClick={this.actionCheckBox}
-                />
-                <label class="form-check-label" for="gridRadios2">
-                  Não
-                </label>
-              </div>
+              <Field
+                classGroup='form-check'
+                inputClass="form-check-input"
+                name="gridRadios"
+                component={LabelAndInput}
+                readOnly={this.props.readOnly}
+                label="Sim"
+                labelClass="form-check-label"
+                cols="6"
+                type="radio"
+                value="yes"
+                checked={"" ? "checked" : ""}
+                onClick={this.actionCheckBox}
+              />
+              <Field
+                classGroup='form-check'
+                inputClass="form-check-input"
+                name="gridRadios2"
+                component={LabelAndInput}
+                readOnly={this.props.readOnly}
+                label="Não"
+                labelClass="form-check-label"
+                cols="6"
+                type="radio"
+                value="yes"
+                checked={"" ? "" : "checked"}
+                onClick={this.actionCheckBox}
+              />
             </div>
           </fieldset>
           <div className="form-group col-6">

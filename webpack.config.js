@@ -6,6 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require("path");
 const SRC_DIR = path.resolve(__dirname, "src");
+//const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = {
   /*entry:{
@@ -25,7 +26,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    contentBase: [path.join(__dirname, 'public'), path.join(__dirname, 'assets')],
+    contentBase: [path.join(__dirname, 'public'),path.join(__dirname, 'assets')],
     port: 9000,
   },
   resolve: {
@@ -51,6 +52,7 @@ module.exports = {
       /*filename: '[name].css',
       chunkFilename: '[id].css'*/
     }),
+   // new DashboardPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -73,21 +75,12 @@ module.exports = {
       {
         test: /.js[x]?$/,
         exclude: /node_modules/,
-        //include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, "src"),
         use:[{
           loader: "babel-loader",
           options: {
             presets: [ "@babel/preset-env",
-            "@babel/preset-react"],
-            plugins: ["transform-object-rest-spread", 
-            "@babel/plugin-proposal-class-properties", 
-            "@babel/plugin-transform-runtime", 
-            "@babel/plugin-syntax-dynamic-import", 
-            ["transform-class-properties", { spec: true }],
-            ["babel-plugin-transform-builtin-extend", {
-              globals: ["Error", "Array"]
-            }],
-            ],
+            "@babel/preset-react"]
           },
         }],
         //loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
