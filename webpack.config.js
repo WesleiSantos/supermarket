@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require("path");
 const SRC_DIR = path.resolve(__dirname, "src");
-//const DashboardPlugin = require('webpack-dashboard/plugin')
+
 
 module.exports = {
   /*entry:{
@@ -37,7 +37,7 @@ module.exports = {
       bootstrap: "/node_modules/bootstrap/dist/js/bootstrap.js",
     }
   },
-  /*optimization: {
+  optimization: {
     minimizer: [
       new UnglifyJsPlugin({
         cache: true,
@@ -45,7 +45,7 @@ module.exports = {
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],
-  },*/
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "style.css",

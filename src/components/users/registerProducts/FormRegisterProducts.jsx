@@ -24,14 +24,28 @@ import {
 } from "../../../actions/actionProduct";
 import InputFiles from "react-input-files";
 
+const initialState = {
+  statusInput : false
+} 
+
 class RegisterProduct extends Component {
   constructor(props) {
     super(props);
+    this.state = initialState 
     this.handleFile = this.handleFile.bind(this);
     this.submitHandle = this.submitHandle.bind(this);
+    this.actionCheckBox = this.actionCheckBox.bind(this);
   }
 
-  actionCheckBox = (e) => { };
+  actionCheckBox = (e) => {
+    console.log(e.target.value)
+    if (e.target.value === "yes") {
+      this.setState({statusInput:true});
+    } else {
+      this.props.clearDescripition();
+      this.setState({statusInput:false});
+    }
+   };
 
   submitHandle = (e) => {
     e.preventDefault();
@@ -120,52 +134,55 @@ class RegisterProduct extends Component {
             <legend class="col-form-label col-12 pt-0 pl-0">
               Oferta Promocional
             </legend>
-            <div class="col-12 d-flex flex-row pl-0">
+            <div class="d-flex flex-row pl-0">
               <Field
-                classGroup='form-check'
+                classGroup='form-check  pl-2 d-flex flex-row'
                 inputClass="form-check-input"
                 name="gridRadios"
                 component={LabelAndInput}
                 readOnly={this.props.readOnly}
                 label="Sim"
                 labelClass="form-check-label"
-                cols="6"
+                cols="6 6 6 6 6"
                 type="radio"
                 value="yes"
-                checked={"" ? "checked" : ""}
                 onClick={this.actionCheckBox}
               />
               <Field
-                classGroup='form-check'
+                classGroup='form-check pl-0 d-flex flex-row'
                 inputClass="form-check-input"
-                name="gridRadios2"
+                name="gridRadios"
                 component={LabelAndInput}
                 readOnly={this.props.readOnly}
                 label="Não"
                 labelClass="form-check-label"
-                cols="6"
+                cols="6 6 6 6 6"
                 type="radio"
                 value="yes"
-                checked={"" ? "" : "checked"}
                 onClick={this.actionCheckBox}
               />
+              
             </div>
           </fieldset>
-          <div className="form-group col-6">
-            <label for="DescriptionMeasure">Descrição de Oferta</label>
-            <input
-              type="text"
-              className={"form-control "}
-              id="DescriptionMeasure"
-              disabled={"" ? "" : "disabled"}
-              value={
-                this.props.product.description_measure
-                  ? this.props.product.description_measure
-                  : ""
-              }
-              onChange={this.props.addProductDescriptionMeasure}
-            />
-          </div>
+          <Field
+            classGroup='form-group'
+            name="DescriptionMeasure"
+            component={LabelAndInput}
+            inputClass={'form-control'}
+            readOnly={this.props.readOnly}
+            label="Descrição de Oferta"
+            cols="6 6 6 6 6"
+            placeholder=""
+            type="text"
+            id="DescriptionMeasure"
+            value={
+              this.props.product.description_measure
+                ? this.props.product.description_measure
+                : ""
+            }
+            onChange={this.props.addProductDescriptionMeasure}
+            disabled={this.state.statusInput ? "" : "disabled"}
+          />
         </form>
         <form className="form-row">
           <div className="form-group col-6">

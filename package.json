@@ -37,7 +37,7 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "serve": "webpack-dev-server --progress --colors --inline --hot -d --watch",
+    "serve":"webpack-dev-server --progress --colors --inline --hot -d --watch",
     "production": "webpack --progress -p",
     "build": "cross-env NODE_ENV=production webpack",
     "test": "react-scripts test",
