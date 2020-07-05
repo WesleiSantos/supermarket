@@ -7,7 +7,7 @@ export default (props) => (
   <session className=" home-session-menu">
     <nav className="home-menu navbar navbar-expand-md navbar-dark ">
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -15,10 +15,10 @@ export default (props) => (
         aria-expanded="true"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <section class="home-session-options-menu">
-        <div class="navbar-nav  collapse  navbar-collapse" id="navbarNav">
+      <section className="home-session-options-menu">
+        <div className="navbar-nav  collapse  navbar-collapse" id="navbarNav">
           <Search />
           <NavOption
             classOption="fa fa-cutlery nav-item nav-link"

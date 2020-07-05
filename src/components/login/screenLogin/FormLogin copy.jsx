@@ -63,7 +63,7 @@ class FormLogin extends Component{
       {this.state.error && <div class="alert alert-danger" role="alert">{this.state.error}</div>}
       <div className="form-row justify-content-center">
         <div class="col-11 mt-2">
-          <label for="inputEmail1">Email:</label>
+          <label htmlFor="inputEmail1">Email:</label>
           <input
             type="email"
             class="form-control"
@@ -74,7 +74,7 @@ class FormLogin extends Component{
           />
         </div>
         <div class="col-11 mt-2">
-          <label for="inputPassword">Senha:</label>
+          <label htmlFor="inputPassword">Senha:</label>
           <input
             type="password"
             class="form-control"
@@ -86,7 +86,7 @@ class FormLogin extends Component{
         <div class="col-11 mt-2">
         <div class="form-check">
         <input type="checkbox" class="form-check-input" id="dropdownCheck"/>
-        <label class="form-check-label" for="dropdownCheck">
+        <label class="form-check-label" htmlFor="dropdownCheck">
           Lembrar de mim
         </label>
       </div>

@@ -4,7 +4,8 @@
     [
       "@babel/env"
     ],
-    "@babel/preset-react"
+    "@babel/preset-react",
+    "@babel/preset-flow"
   ],
   "plugins": [
     "@babel/plugin-transform-regenerator",

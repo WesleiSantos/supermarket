@@ -7,41 +7,41 @@ class FormRegisterAddress extends Component {
     return(
       <form className="form-register-address">
     <div className="form-row justify-content-center">
-      <div class="col-8">
-        <label for="inputDistrict">Bairro:</label>
+      <div className="col-8">
+        <label htmlFor="inputDistrict">Bairro:</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="inputDistrict"
           aria-describedby="districtHelp"
           placeholder="Bairro"
         />
       </div>
-      <div class="col-4 ">
-        <label for="inputCep">Cep:</label>
+      <div className="col-4 ">
+        <label htmlFor="inputCep">Cep:</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="inputCep"
           aria-describedby="cepHelp"
           placeholder="Cep"
         />
       </div>
-      <div class="col-6 ">
-        <label for="inputAddress">Endereço:</label>
+      <div className="col-6 ">
+        <label htmlFor="inputAddress">Endereço:</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="inputAddress"
           aria-describedby="addressHelp"
           placeholder="Endereço"
         />
       </div>
-      <div class="col-6 ">
-        <label for="inputPhone">Telefone:</label>
+      <div className="col-6 ">
+        <label htmlFor="inputPhone">Telefone:</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="inputPhone"
           aria-describedby="phoneHelp"
           placeholder="Telefone"
@@ -49,7 +49,7 @@ class FormRegisterAddress extends Component {
       </div>
     </div>
     <div className="form-row justify-content-center">
-          <button type="submit" class="btn btn-next btn-primary mr-2 mt-5">
+          <button type="submit" className="btn btn-next btn-primary mr-2 mt-5">
              Confirmar
           </button>
         </div>

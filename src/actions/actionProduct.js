@@ -15,6 +15,7 @@ import {
 } from "./actionsTypes";
 import api from "../api";
 import { toastr } from "react-redux-toastr";
+import {reset as resetForm } from "redux-form"
 
 export const search = () => {
   const request = api.get("/auth/listProducts");
@@ -31,6 +32,33 @@ const imagePost = (img) => {
 };
 
 export const addProduct = (product) => {
+    return (dispatch) => {
+      const image = new FormData();
+      console.log(product)
+      image.append('file', product.inputFile[0]);
+      console.log("add image", image.get('file'));
+      product = {...product, image}
+    api
+      .post("/auth/registerProducts", product)
+      .then(
+        (resp) =>
+          console.log(
+            "resposta do servidor",resp
+          ) 
+      )
+      .then((resp) => {
+        toastr.success("Sucesso", "Operação Realizada com sucesso.");
+        dispatch(resetForm());
+      })
+      .catch((error) => {
+        Object.values(error.response.data).forEach((error) =>
+          toastr.error("Erro", error[0])
+        );
+      });
+}
+}
+
+export const addProductOriginal = (product) => {
   const image = new FormData();
   image.append('file', product.image);
   console.log("add image", image.get('file'), product.image.name);
@@ -44,7 +72,7 @@ export const addProduct = (product) => {
           ) 
       )
       .then((resp) => {
-        dispatch([search(), clear()]);
+        dispatch([search(), resetForm('registerProduct')]);
         toastr.success("Sucesso", "Operação Realizada com sucesso.");
       })
       .catch((error) => {
@@ -59,8 +87,15 @@ export const clearDescripition = () => {
   return { type: CLEAR_DESCRIPTION };
 };
 
+/*
 export const clear = () => {
   return { type: FORM_PRODUCT_CLEAR };
+};
+*/
+export const clear = () => {
+    return (dispatch) => {
+        dispatch([resetForm('registerProduct')])
+    }
 };
 
 export const addProductDescriptionMeasure = (event) => ({

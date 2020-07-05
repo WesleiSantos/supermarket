@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require("path");
 const SRC_DIR = path.resolve(__dirname, "src");
-
+const devMode = process.env.NODE_ENV === 'development'
 
 module.exports = {
   /*entry:{
@@ -17,24 +17,28 @@ module.exports = {
   output: {
     //path: path.resolve(__dirname, 'dist'),
     //filename: '[name].js'
-    path: path.resolve(__dirname + "/dist"),
     filename: "main.js",
-    library: 'libary'
+    library: 'libary',
+    publicPath: '/',
+    path: path.resolve(__dirname, "dist"),
+
   },
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    contentBase: [path.join(__dirname, 'public'),path.join(__dirname, 'assets')],
+    inline: true,
+    contentBase: path.resolve(__dirname, 'public'),
     port: 9000,
   },
   resolve: {
-    extensions: [".js", ".json", ".jsx", "*"],
+    extensions: [".js", ".json", ".jsx", ".css", "*"],
     alias: {
-      'babel-runtime' : path.resolve(__dirname + "/node_modules", 'babel-runtime'),
+      'babel-runtime': path.resolve(__dirname + "/node_modules", 'babel-runtime'),
       modules: __dirname + "/node_modules",
       bootstrap: "/node_modules/bootstrap/dist/js/bootstrap.js",
+      assets: __dirname +"/src/assets"
     }
   },
   optimization: {
@@ -48,55 +52,65 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.css",
-      /*filename: '[name].css',
-      chunkFilename: '[id].css'*/
+      //filename: "style.css",
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     }),
-   // new DashboardPlugin(),
+    // new DashboardPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
-  }),
-    new HtmlWebpackPlugin({template: './public/index.html',filename: 'index.html',
-    favicon: './public/favicon.ico'})
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/index.html', filename: 'index.html',
+      favicon: './public/favicon.ico'
+    })
   ],
   module: {
     rules: [
       {
         test: /\.s?[ac]ss$/,
         use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader
+          ,
+          'css-loader'
+          ,
+          'sass-loader'
+
+          /*'style-loader',
+           MiniCssExtractPlugin.loader,
           'css-loader', //interpreta @import, url()...
-          
+          "sass-loader"*/
         ]
       },
       {
         test: /.js[x]?$/,
         exclude: /node_modules/,
-        include: path.resolve(__dirname, "src"),
-        use:[{
+        //include: path.resolve(__dirname, "src"),
+        use: [{
           loader: "babel-loader",
           options: {
-            presets: [ "@babel/preset-env",
-            "@babel/preset-react"]
+            cacheDirectory: true,
+            presets: ["@babel/preset-env",
+              "@babel/preset-react"]
           },
         }],
         //loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
         test: /\.png|.svg|.jpg|.jpeg|.gif|.woff|.woff2|.ttf|.eot*.*$/,
-        use : ['file-loader?name=[name].[ext]']
-      }, 
-      /*{
+        use: ['file-loader?name=[name].[ext]'],
+      },
+      {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
           },
         ],
-      },*/
+      },
     ],
   },
 };

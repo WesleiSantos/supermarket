@@ -6,13 +6,13 @@ export default class ChangePassword extends Component {
       <LoginTemplate title="Troca de Senha" btnPath="/login">
         <form>
           <div className="form-row justify-content-center">
-            <div class="col-11 mt-2">
-              <label for="inputEmail1">
+            <div className="col-11 mt-2">
+              <label htmlFor="inputEmail1">
                 Insira o email que está vinculado a sua conta:
               </label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="inputEmail"
                 aria-describedby="emailHelp"
                 placeholder="email@exemplo"
@@ -20,7 +20,7 @@ export default class ChangePassword extends Component {
             </div>
           </div>
           <div className="form-row justify-content-center">
-            <button type="submit" class="btn btn-primary mt-2 mb-4">
+            <button type="submit" className="btn btn-primary mt-2 mb-4">
               Enviar
             </button>
           </div>

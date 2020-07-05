@@ -11,7 +11,8 @@ import {Reducers} from "../reducers"
 
 const persistConfig = {
   key:'supermarket',
-  storage
+  storage,
+  blacklist: 'form/registerProduct'
 }
 const persistedReducer = persistReducer(persistConfig, Reducers)
 //const store = createStore(persistedReducer)
@@ -19,7 +20,8 @@ const persistedReducer = persistReducer(persistConfig, Reducers)
 const middlewareRouter = routerMiddleware(history)
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
-  && window.__REDUX_DEVTOOLS_EXTENSION__()
+? window.__REDUX_DEVTOOLS_EXTENSION__()
+: f => f
 
 const middleware = applyMiddleware(thunk, multi, promisse, middlewareRouter)
 

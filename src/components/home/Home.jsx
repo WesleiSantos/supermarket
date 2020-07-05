@@ -19,7 +19,7 @@ import Contact_area from './screenContact/Contact_area'
 
 export default (props) => (
   <React.Fragment>
-  <div class="home">
+  <div className="home">
       <Main>
           <Header >
             <Link to=""><i className="fa fa-shopping-cart fa-2x pr-5"></i></Link>

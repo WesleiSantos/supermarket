@@ -1,76 +1,29 @@
-import React, { useState, useEffect, Fragment, Component } from "react";
+import React, { Fragment, Component } from "react";
 import { BsDash, BsPlus } from "react-icons/bs";
 import "./RegisterProduct.css";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
 import LabelAndInput from "../../form/labelAndInput";
 import LabelAndSelect from "../../form/labelAndSelect";
-import { reduxForm, Field } from "redux-form";
-
-import {
-  addProductDescriptionMeasure,
-  addProductUnity,
-  addProductValue,
-  addProductCategory,
-  addProductPercentageDiscount,
-  addProductCode,
-  addProductDescription,
-  addProductQuantity,
-  addProductImage,
-  addProduct,
-  search,
-  clear,
-  clearDescripition,
-} from "../../../actions/actionProduct";
-import InputFiles from "react-input-files";
+import LabelAndInputFile from '../../form/labelAndInputFile'
+import { reduxForm, Field, formValueSelector } from "redux-form";
 
 const initialState = {
-  statusInput : false
-} 
+  statusInput: false
+}
 
-class RegisterProduct extends Component {
+class FormRegisterProducts extends Component {
   constructor(props) {
     super(props);
-    this.state = initialState 
-    this.handleFile = this.handleFile.bind(this);
-    this.submitHandle = this.submitHandle.bind(this);
-    this.actionCheckBox = this.actionCheckBox.bind(this);
+    this.state = initialState
   }
 
-  actionCheckBox = (e) => {
-    console.log(e.target.value)
-    if (e.target.value === "yes") {
-      this.setState({statusInput:true});
-    } else {
-      this.props.clearDescripition();
-      this.setState({statusInput:false});
-    }
-   };
-
-  submitHandle = (e) => {
-    e.preventDefault();
-    this.props.addProduct(this.props.product);
-  };
-
-  increaseQuantityHandle = (e) => { };
-
-  handleFile = (files, event) => {
-    event.preventDefault();
-    if (files[0]) {
-      /*
-        const formData = new FormData();
-        formData.append(files[0].name, files[0]);
-        console.log(formData.get(files[0].name));
-      */
-      this.props.addProductImage(files[0]);
-    }
-  };
-
   render() {
+    const { handleSubmit, readOnly } = this.props
     return (
-      <Fragment>
-        <h2>Cadastro de produtos</h2>
-        <form className="form-row">
+      <form onSubmit={handleSubmit}>
+        <h3>Cadastro de produtos</h3>
+        <form className="form-row" role='form' >
           <Field
             classGroup='form-group'
             name="category"
@@ -79,7 +32,7 @@ class RegisterProduct extends Component {
             id="category"
             label="Categoria"
           >
-            <option selected={this.props.product.category ? "" : "selected"}>
+            <option selected="selected">
               selecione
               </option>
             <option value="1">Açougue</option>
@@ -97,203 +50,159 @@ class RegisterProduct extends Component {
             <option value="13">Utensílios domésticos</option>
           </Field>
         </form>
-        <form className="form-row">
+        <form className="form-row" role='form' >
           <Field
             classGroup='form-group'
-            name="email"
+            name="code"
             component={LabelAndInput}
             inputClass={'form-control'}
-            readOnly={this.props.readOnly}
+            readOnly={readOnly}
             label="Codigo"
             cols="6 6 6 6"
             placeholder="00"
             type="number"
-            value={this.props.product.code ? this.props.product.code : ""}
-            onChange={this.props.addProductCode}
           />
           <Field
             classGroup='form-group'
-            name="description"
+            name="description_product"
             inputClass={'form-control'}
             component={LabelAndInput}
-            readOnly={this.props.readOnly}
+            readOnly={readOnly}
             label="Descrição de produto"
             cols="6 6 6 6"
             placeholder="Descrição.."
             type="text"
-            value={
-              this.props.product.description_product
-                ? this.props.product.description_product
-                : ""
-            }
-            onChange={this.props.addProductDescription}
           />
         </form>
-        <form className="form-row">
-          <fieldset class="form-group col-6">
-            <legend class="col-form-label col-12 pt-0 pl-0">
-              Oferta Promocional
-            </legend>
-            <div class="d-flex flex-row pl-0">
+        <form className="form-row" role='form' >
+            <div className="d-flex flex-row align-items-center  col-12">
+              <legend className="col-form-label">
+                Oferta Promocional
+              </legend>
               <Field
-                classGroup='form-check  pl-2 d-flex flex-row'
+                classGroup='form-check pl-2 d-flex flex-row'
                 inputClass="form-check-input"
                 name="gridRadios"
                 component={LabelAndInput}
-                readOnly={this.props.readOnly}
+                readOnly={readOnly}
                 label="Sim"
-                labelClass="form-check-label"
-                cols="6 6 6 6 6"
+                labelClass="form-check-label mr-2"
                 type="radio"
-                value="yes"
-                onClick={this.actionCheckBox}
+                onChange={() => { this.setState({ statusInput: true }); }}
               />
               <Field
-                classGroup='form-check pl-0 d-flex flex-row'
+                classGroup='form-check d-flex flex-row'
                 inputClass="form-check-input"
                 name="gridRadios"
                 component={LabelAndInput}
-                readOnly={this.props.readOnly}
+                readOnly={readOnly}
                 label="Não"
                 labelClass="form-check-label"
-                cols="6 6 6 6 6"
                 type="radio"
-                value="yes"
-                onClick={this.actionCheckBox}
+                onChange={() => {
+                  this.setState({ statusInput: false });
+                }}
               />
-              
             </div>
-          </fieldset>
+          {this.state.statusInput && 
+            <Field
+              classGroup='form-group'
+              name="description_measure"
+              component={LabelAndInput}
+              inputClass={'form-control'}
+              readOnly={readOnly}
+              label="Descrição de Oferta"
+              cols="6 6 6 6 12"
+              placeholder=""
+              type="text"
+              id="DescriptionMeasure"
+            />
+          }
+        </form>
+        <form className="form-row" role='form' >
           <Field
             classGroup='form-group'
-            name="DescriptionMeasure"
+            name="value_unitary"
             component={LabelAndInput}
             inputClass={'form-control'}
-            readOnly={this.props.readOnly}
-            label="Descrição de Oferta"
+            readOnly={readOnly}
+            label="Valor Produto"
             cols="6 6 6 6 6"
-            placeholder=""
-            type="text"
-            id="DescriptionMeasure"
-            value={
-              this.props.product.description_measure
-                ? this.props.product.description_measure
-                : ""
-            }
-            onChange={this.props.addProductDescriptionMeasure}
-            disabled={this.state.statusInput ? "" : "disabled"}
+            placeholder="0,00"
+            type="number"
+            id="value_unitary"
+          />
+          <Field
+            classGroup='form-group'
+            name="percentage_discount"
+            component={LabelAndInput}
+            inputClass={'form-control'}
+            readOnly={readOnly}
+            label="Desconto"
+            cols="6 6 6 6 6"
+            placeholder="0%"
+            type="number"
+            id="percentage_discount"
           />
         </form>
-        <form className="form-row">
-          <div className="form-group col-6">
-            <label id="value_unitary">Valor Produto</label>
-            <input
-              type="number"
-              className="form-control"
-              id="value_unitary"
-              placeholder="0,00"
-              value={
-                this.props.product.value_unitary
-                  ? this.props.product.value_unitary
-                  : ""
+        <form className="form-row" role='form' >
+          <Field
+            classGroup='form-group'
+            name="quantity"
+            component={LabelAndInput}
+            inputClass={'form-control'}
+            readOnly={readOnly}
+            label="Quantidade"
+            cols="6 6 6 6 8"
+            placeholder="0"
+            type="number"
+            id="quantity"
+          />
+          <Field
+            classGroup='form-group'
+            name="unity_sale"
+            component={LabelAndSelect}
+            cols="12 12 12 12 4"
+            id="category"
+            label="Unidade"
+          >
+            <option
+              value="UN"
+              selected={
+                "selected"
               }
-              onChange={this.props.addProductValue}
-            />
-          </div>
-          <div className="form-group col-6">
-            <label for="percentage_discount">Desconto</label>
-            <input
-              type="number"
-              className="form-control"
-              id="percentage_discount"
-              placeholder="0%"
-              value={
-                this.props.product.percentage_discount
-                  ? this.props.product.percentage_discount
-                  : ""
-              }
-              onChange={this.props.addProductPercentageDiscount}
-            />
-          </div>
-        </form>
-        <form className="form-row">
-          <div className="form-group col-8 ">
-            <div className="d-flex justify-content-center">
-              <label for="quantity">Quantidade</label>
-            </div>
-            <div className="d-flex flex-row">
-              <button className="btn btn-secondary">
-                <BsPlus />
-              </button>
-              <input
-                type="number"
-                className="form-control"
-                id="quantity"
-                placeholder="0"
-                value={
-                  this.props.product.quantity ? this.props.product.quantity : ""
-                }
-                onChange={this.props.addProductQuantity}
-              />
-              <button className="btn btn-secondary">
-                <BsDash />
-              </button>
-            </div>
-          </div>
-          <div class="form-group col-4">
-            <label for="unity_sale">Unidade</label>
-            <select
-              class="custom-select"
-              id="unity_sale"
-              onChange={this.props.addProductUnity}
             >
-              <option
-                value="UN"
-                selected={
-                  this.props.product.unity_sale === "UN" ? "selected" : ""
-                }
-              >
-                UN
+              UN
               </option>
-              <option value="KG">KG</option>
-              <option value="G">G</option>
-              <option value="L">L</option>
-              <option value="ML">ML</option>
-            </select>
-          </div>
+            <option value="KG">KG</option>
+            <option value="G">G</option>
+            <option value="L">L</option>
+            <option value="ML">ML</option>
+          </Field>
         </form>
-        <form className="form-row" enctype="multipart/form-data">
-          <div class="custom-file">
+        <form className="form-row" encType="multipart/form-data" role='form' >
+          <div className="custom-file">
             <img
               alt=""
               src={
-                this.props.product.image === undefined
+                this.props.initialValues.image === undefined
                   ? ""
-                  : this.props.product.image.secure_url
+                  : this.props.initialValues.image.secure_url
               }
             />
-            <InputFiles
+            <Field
               multiple="multiple"
-              onChange={(files, e) => this.handleFile(files, e)}
+              name="inputFile"
+              component={LabelAndInputFile}
             >
-              <div className="d-flex flex-row">
-                <label class="custom-file-label" for="customFileLang">
-                  {this.props.product.image === undefined
-                    ? "Selecione uma imagem"
-                    : this.props.product.image.name}
-                </label>
-                <button>Envio</button>
-              </div>
-            </InputFiles>
-            ;
+            </Field>
           </div>
         </form>
         <form className="form-row">
           <div className="col-6 mt-4 d-flex justify-content-center">
             <button
-              type="button"
+              type="submit"
               className="btn btn-primary"
-              onClick={this.submitHandle}
             >
               Cadastrar
             </button>
@@ -308,14 +217,14 @@ class RegisterProduct extends Component {
             </button>
           </div>
         </form>
-      </Fragment>
+      </form>
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    product: {
+    initialValues: {
       description_product: state.product.description_product,
       unity_sale: state.product.unity_sale,
       value_unitary: state.product.value_unitary,
@@ -329,29 +238,8 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispachToProps(dispatch) {
-  return bindActionCreators(
-    {
-      addProductDescriptionMeasure,
-      addProductUnity,
-      addProductValue,
-      addProductCategory,
-      addProductPercentageDiscount,
-      addProductCode,
-      addProductDescription,
-      addProductQuantity,
-      addProductImage,
-      addProduct,
-      search,
-      clear,
-      clearDescripition,
-    },
-    dispatch
-  );
-}
-
-RegisterProduct = reduxForm({
+FormRegisterProducts = reduxForm({
   form: "registerProduct",
   destroyOnUnmount: false,
-})(RegisterProduct);
-export default connect(mapStateToProps, mapDispachToProps)(RegisterProduct);
+})(FormRegisterProducts);
+export default connect(mapStateToProps, null)(withRouter(FormRegisterProducts));

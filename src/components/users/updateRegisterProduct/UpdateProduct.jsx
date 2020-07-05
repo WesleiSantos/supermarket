@@ -1,9 +1,37 @@
-import React from 'react'
-import Main from '../../template/templateUsers/Main'
-import User from '../Users'
-export default props=>
 
-<Main icon="home" title="Início"
-            subtitle="Segundo projeto do capítulo react.">
-            <div className='display-4'>Dados de Produtos</div>
-</Main>
+import React from "react";
+import Main from "../../template/templateUsers/Main"
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { addProduct, clear } from "../../../actions/actionProduct";
+import FormRegisterProducts from "../registerProducts/FormRegisterProducts";
+
+const submit = values => {
+  // print the form values to the console
+  console.log(values)
+}
+const UpdateProduct = (props) => {
+  
+  return (
+    <React.Fragment>
+      <Main>
+          
+      </Main>
+    </React.Fragment>
+  );
+};
+
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      addProduct,
+      clear
+    },
+    dispatch
+  );
+
+export default connect(null, mapDispatchToProps)(UpdateProduct);
+
+
+

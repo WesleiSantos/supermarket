@@ -29,9 +29,9 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('file');
+        /*$file = $request->file('file');
         $this->imgAdd(1,$file);
-        return $request->hasFile('file') ? 'true' : 'false' ;
+        return $request->hasFile('file') ? 'true' : 'false' ;*/
 
         $validator = Validator::make($request->all(), [
             'description_product' => 'required|string|max:255',

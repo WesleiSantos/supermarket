@@ -2,24 +2,25 @@ import React, { Component } from "react";
 import Register from "./Register.css";
 import { withRouter } from "react-router-dom";
 import api from "../../../api";
-
+const initialState = {
+  name: "",
+  surname: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  error: "",
+};
 class FormRegisterLogin extends Component {
-  state = {
-    name: "",
-    surname: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    error: "",
-  };
+  
 
   constructor(props) {
     super(props);
+    this.state= initialState
     this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   handleSignUp = async (e) => {
-    e.preventDefault();
+   /* e.preventDefault();
     const { name, surname, email, password, confirmPassword } = this.state;
     if (!name || !surname || !email || !password || !confirmPassword) {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
@@ -39,7 +40,7 @@ class FormRegisterLogin extends Component {
             }
           }
         });
-    }
+    }*/
   };
   render() {
     return (
@@ -50,7 +51,7 @@ class FormRegisterLogin extends Component {
             </div>
           )}
         <div className="form-row justify-content-center">
-          <div class="col-6 ">
+          <div className="col-6 ">
             <label for="inputName">Name:</label>
             <input
               type="text"

@@ -39,7 +39,7 @@ class FormLogin extends Component{
         <div className="col-11 mt-2">
         <div className="form-check">
         <input type="checkbox" className="form-check-input" id="dropdownCheck"/>
-        <label className="form-check-label" for="dropdownCheck">
+        <label className="form-check-label" htmlFor="dropdownCheck">
           Lembrar de mim
         </label>
       </div>

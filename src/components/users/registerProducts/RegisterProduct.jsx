@@ -2,14 +2,19 @@ import React from "react";
 import Main from "../../template/templateUsers/Main"
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { loginUser } from "../../../actions/actionLogin";
 import FormRegisterProducts from "./FormRegisterProducts";
+import { addProduct, clear } from "../../../actions/actionProduct";
 
+const submit = values => {
+  // print the form values to the console
+  console.log(values)
+}
 const RegisterProduct = (props) => {
+  
   return (
     <React.Fragment>
       <Main>
-        <FormRegisterProducts readOnly={false}/>
+        <FormRegisterProducts onSubmit={props.addProduct} readOnly={false} clear={props.clear}/>
       </Main>
     </React.Fragment>
   );
@@ -19,7 +24,8 @@ const RegisterProduct = (props) => {
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      loginUser,
+      addProduct,
+      clear
     },
     dispatch
   );

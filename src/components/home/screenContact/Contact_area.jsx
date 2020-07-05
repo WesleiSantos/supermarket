@@ -22,7 +22,7 @@ const Contact = (props) => {
           onMouseOut={handleOut}
         >
           <div className="contacts-itens">
-            <i class="fa fa-comments" aria-hidden="true"></i>
+            <i className="fa fa-comments" aria-hidden="true"></i>
           </div>
           <div
             className={"nav-itens " + (state ? "nav-show" : "d-none")}

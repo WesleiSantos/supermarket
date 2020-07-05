@@ -3,12 +3,13 @@ import Grid from "../layout/grid";
 
 export default (props) => (
   <Grid cols={props.cols}>
-     <div className={props.classGroup}>
+    <div className={props.classGroup}>
       <label htmlFor={props.name} className={props.labelClass} >{props.label}</label>
       <select
-        {...props.select}
+        {...props.input}  
+        value={props.input.value} 
+        name={props.name}
         className="form-control"
-        defaultValue={props.defaultValue}
         readOnly={props.readOnly}
         id={props.id}
       >

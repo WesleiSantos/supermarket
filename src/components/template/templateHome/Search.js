@@ -6,7 +6,7 @@ export default (props) => (
     <div className="row">
       <div className="col-8">
         <input
-          class="form-control ml-2"
+          className="form-control ml-2"
           type="search"
           placeholder="Pesquisar"
           aria-label="Search"

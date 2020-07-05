@@ -9,7 +9,7 @@ const Category = props =>{
         <main className="category">
           <div className="container">
           {props.children}
-          <div class="row align-items-center justify-content-around">
+          <div className="row align-items-center justify-content-around">
               <CategoryList class={nameClass} title="Alimentos Básicos" description="" />
               <CategoryList class={nameClass} title="Açougue" description="" />
               <CategoryList class={nameClass} title="Bebidas" description="" />
