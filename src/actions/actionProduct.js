@@ -15,15 +15,25 @@ import {
 } from "./actionsTypes";
 import api from "../api";
 import { toastr } from "react-redux-toastr";
-import {reset as resetForm } from "redux-form"
+import {reset as resetForm, initialize } from "redux-form"
+import { push, go } from "react-router-redux";
 
 export const search = () => {
-  const request = api.get("/auth/listProducts");
-  return {
-    type: PRODUCT_SEARCHED,
-    payload: request,
-  };
-};
+  return dispatch => {
+    api.get("/auth/listProducts").then( request => dispatch([{ type: PRODUCT_SEARCHED,
+    payload: request}])).catch((error) => {
+      Object.values(error.response.data).forEach((error) =>
+        toastr.error("Erro", error[0])
+      );
+    })
+  }
+}
+
+export const showUpdate = (product) =>{
+  return dispatch => { 
+      dispatch([push('/user/registerProduct')])
+  }
+}
 
 const imagePost = (img) => {
   const image = new FormData();
@@ -87,11 +97,6 @@ export const clearDescripition = () => {
   return { type: CLEAR_DESCRIPTION };
 };
 
-/*
-export const clear = () => {
-  return { type: FORM_PRODUCT_CLEAR };
-};
-*/
 export const clear = () => {
     return (dispatch) => {
         dispatch([resetForm('registerProduct')])

@@ -1,0 +1,68 @@
+.updateProduct i.fa {
+    color:white ;
+}
+.updateProduct table td{
+    overflow: hidden;
+    text-align: center;
+    font-family: arial, helvetica, sans-serif;
+    text-transform: capitalize;
+    overflow-wrap: break-word;
+}
+
+.updateProduct table th{
+    text-align: center;
+    font-family: arial, helvetica, sans-serif;
+}
+
+.updateProduct table thead{
+    color: #fff;
+    background-color:var(--color-blue);
+}
+
+.scorpius-border-shadow-sm {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: rgb(253, 253, 253) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+.scorpius-border-shadow {
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    background-color: rgb(253, 253, 253) !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35) !important;
+}
+.scorpius-border {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: #fff !important;
+}
+.border-shadow {
+    border-color: rgba(145, 145, 145, 0.062);
+}
+
+@media(max-width: 540px){
+    
+    .updateProduct table td{
+        padding: 2%;
+    }
+    .updateProduct .table{
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .updateProduct .table tr {
+       padding: 0px;
+       margin: 0px;
+    }
+
+    .updateProduct .table th {
+        padding: 3px 3px 3px 3px ;
+        margin: 0px;
+     }
+}

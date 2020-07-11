@@ -22,7 +22,7 @@ class FormRegisterProducts extends Component {
     const { handleSubmit, readOnly } = this.props
     return (
       <form onSubmit={handleSubmit}>
-        <h3>Cadastro de produtos</h3>
+        <h3 className="text-center font-weight-bold" >Cadastro de produtos</h3>
         <form className="form-row" role='form' >
           <Field
             classGroup='form-group'
@@ -33,7 +33,7 @@ class FormRegisterProducts extends Component {
             label="Categoria"
           >
             <option selected="selected">
-              selecione
+              Selecione
               </option>
             <option value="1">Açougue</option>
             <option value="2">Alimentos básicos</option>

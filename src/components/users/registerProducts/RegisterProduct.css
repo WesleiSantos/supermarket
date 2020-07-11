@@ -4,4 +4,5 @@ div.form-register-product{
     border-radius: 10px;
     padding: 2em;
     z-index: initial;
+    text-transform: capitalize;
 }

@@ -11,8 +11,6 @@ const initialState = {
   error: "",
 };
 class FormRegisterLogin extends Component {
-  
-
   constructor(props) {
     super(props);
     this.state= initialState
@@ -20,7 +18,7 @@ class FormRegisterLogin extends Component {
   }
 
   handleSignUp = async (e) => {
-   /* e.preventDefault();
+    e.preventDefault();
     const { name, surname, email, password, confirmPassword } = this.state;
     if (!name || !surname || !email || !password || !confirmPassword) {
       this.setState({ error: "Preencha todos os dados para se cadastrar" });
@@ -40,7 +38,7 @@ class FormRegisterLogin extends Component {
             }
           }
         });
-    }*/
+    }
   };
   render() {
     return (

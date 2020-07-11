@@ -1,5 +1,24 @@
 
-@media(max-width: 768px){
+@media(min-width: 576px){
+    .user{
+        grid-template-rows:
+        4em
+        var(--header-height)
+        var(--menu-top-heigth)
+        1fr
+        var(--footer-height);
+    grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "logo"
+            "menu"
+            "content"
+            "footer";
+    }
+}
+
+
+@media(min-width: 768px){
     .user{
         grid-template-rows:
         var(--header-height)
@@ -16,7 +35,7 @@
     }
 }
 
-@media(max-width: 960px){
+@media(min-width: 960px){
     .user{
         margin: 0px;
         display: grid;
@@ -35,23 +54,6 @@
     }
 }
 
-@media(max-width: 576px){
-    .user{
-        grid-template-rows:
-        4em
-        var(--header-height)
-        var(--menu-top-heigth)
-        1fr
-        var(--footer-height);
-    grid-template-columns: 1fr;
-        grid-template-areas:
-            "header"
-            "logo"
-            "menu"
-            "content"
-            "footer";
-    }
-}
 
 .user header.user-header{
     grid-area: header;
