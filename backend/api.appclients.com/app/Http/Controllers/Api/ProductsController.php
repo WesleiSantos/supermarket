@@ -18,7 +18,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return response()->json(Product::orderBy('id', 'asc')->get());
+        return response()->json(DB::table('product')->join('stock', 'product.id', '=', 'stock.product_id')->select('product.*', 'stock.quantity')->get());
     }
 
     /**
@@ -32,7 +32,6 @@ class ProductsController extends Controller
         /*$file = $request->file('file');
         $this->imgAdd(1,$file);
         return $request->hasFile('file') ? 'true' : 'false' ;*/
-
         $validator = Validator::make($request->all(), [
             'description_product' => 'required|string|max:255',
 		    'unity_sale' => 'required',
@@ -41,6 +40,7 @@ class ProductsController extends Controller
 		    'percentage_discount',
 		    'code' => 'unique:product',
             'description_measure',
+            'quantity' => 'required'
         ]);
 
         if($validator->fails()){
@@ -54,11 +54,13 @@ class ProductsController extends Controller
         'category' => $request->get('category'),
         'percentage_discount' => $request->get('percentage_discount'),
         'code' => $request->get('code'),
-        'description_measure' => $request->get('description_measure')
+        'description_measure' => $request->get('description_measure'),
+        'quantity' => $request->get('quantity')
         ];
 
         try{
             $product = Product::create($state);
+            $response = DB::table('stock')->insert(['product_id'=>$product->id, 'quantity'=>$state["quantity"]]);
             if($request->hasFile('file')){
                 $file = $request->file('file');
                 $this->imgAdd($product->id, $file);

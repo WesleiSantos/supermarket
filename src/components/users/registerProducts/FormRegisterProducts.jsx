@@ -18,11 +18,21 @@ class FormRegisterProducts extends Component {
     this.state = initialState
   }
 
+  componentDidMount(){
+    console.log('1', this.props.initialValues.description_measure)
+    {this.props.initialValues.description_measure ? this.setState({statusInput:true}) : this.setState({statusInput:false})}
+  }
+  componentWillMount(){
+    console.log('2',  this.props.initialValues.description_measure)
+    {this.props.initialValues.description_measure ? this.setState({statusInput:true}) : this.setState({statusInput:false})}
+  }
+
   render() {
     const { handleSubmit, readOnly } = this.props
+    console.log('3',this.state.statusInput,  this.props)
     return (
       <form onSubmit={handleSubmit}>
-        <h3 className="text-center font-weight-bold" >Cadastro de produtos</h3>
+        <h3 className="text-center font-weight-bold" >CADASTRO DE PRODUTO</h3>
         <form className="form-row" role='form' >
           <Field
             classGroup='form-group'

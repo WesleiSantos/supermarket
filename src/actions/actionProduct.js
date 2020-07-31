@@ -17,6 +17,7 @@ import api from "../api";
 import { toastr } from "react-redux-toastr";
 import {reset as resetForm, initialize } from "redux-form"
 import { push, go } from "react-router-redux";
+import history from '../main/history';
 
 export const search = () => {
   return dispatch => {
@@ -30,8 +31,9 @@ export const search = () => {
 }
 
 export const showUpdate = (product) =>{
+  console.log(product)
   return dispatch => { 
-      dispatch([push('/user/registerProduct')])
+      dispatch([initialize('registerProduct', product), history.go(1), history.push('/user/updateProduct')])
   }
 }
 
@@ -58,7 +60,7 @@ export const addProduct = (product) => {
       )
       .then((resp) => {
         toastr.success("Sucesso", "Operação Realizada com sucesso.");
-        dispatch(resetForm());
+        dispatch([resetForm('registerProduct')])
       })
       .catch((error) => {
         Object.values(error.response.data).forEach((error) =>
@@ -96,6 +98,10 @@ export const addProductOriginal = (product) => {
 export const clearDescripition = () => {
   return { type: CLEAR_DESCRIPTION };
 };
+
+export const clearFormProduct = () => {
+  return {  type: FORM_PRODUCT_CLEAR }
+}
 
 export const clear = () => {
     return (dispatch) => {

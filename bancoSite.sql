@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `superclick`.`address` (
   `id_user` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_address_1`
-    FOREIGN KEY (`id`)
+    FOREIGN KEY (`id_user`)
     REFERENCES `superclick`.`user` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `superclick`.`telephone` (
     FOREIGN KEY (`id_user`)
     REFERENCES `superclick`.`user` (`id`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -342,7 +342,7 @@ ENGINE = InnoDB;
 -- Table `superclick`.`stock`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `superclick`.`stock` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT NOT NULL,
   `quantity` INT NOT NULL,
   PRIMARY KEY (`id`, `product_id`),
@@ -376,7 +376,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `superclick`;
-INSERT INTO `superclick`.`user` (`id`, `name`, `surname`, `email`, `password`, `id_type_user`) VALUES (3, 'Weslei', 'Santos', 'weslei200', '$2y$10$IESFgoXAb8XPKvh770mH0OjjWzFkDufkhuV3X7lUjgK2Vsm1/qm4S', 3);
+INSERT INTO `superclick`.`user` (`id`, `name`, `surname`, `email`, `password`, `id_type_user`) VALUES (1, 'Weslei', 'Santos', 'weslei200', '$2y$10$IESFgoXAb8XPKvh770mH0OjjWzFkDufkhuV3X7lUjgK2Vsm1/qm4S', 3);
 
 COMMIT;
 
@@ -387,8 +387,8 @@ COMMIT;
 START TRANSACTION;
 USE `superclick`;
 INSERT INTO `superclick`.`address` (`id`, `street`, `number`, `district`, `cep`, `city`, `complement`, `id_user`) VALUES (1, 'Braço forte', 20, 'Asa Branca', '44046800', 'Feira De Santana', 'Próximo igreja Batista', 1);
-INSERT INTO `superclick`.`address` (`id`, `street`, `number`, `district`, `cep`, `city`, `complement`, `id_user`) VALUES (2, 'Um', 86, 'Pampalona', '44789900', 'Feira De Santana', NULL, 2);
-INSERT INTO `superclick`.`address` (`id`, `street`, `number`, `district`, `cep`, `city`, `complement`, `id_user`) VALUES (3, 'andarai', 89, 'Campo Limpo', '44536899', 'Feira De Santana', 'Próximo ao CRAS', 3);
+-- INSERT INTO `superclick`.`address` (`id`, `street`, `number`, `district`, `cep`, `city`, `complement`, `id_user`) VALUES (2, 'Um', 86, 'Pampalona', '44789900', 'Feira De Santana', NULL, 2);
+-- INSERT INTO `superclick`.`address` (`id`, `street`, `number`, `district`, `cep`, `city`, `complement`, `id_user`) VALUES (3, 'andarai', 89, 'Campo Limpo', '44536899', 'Feira De Santana', 'Próximo ao CRAS', 3);
 
 COMMIT;
 
@@ -399,8 +399,6 @@ COMMIT;
 START TRANSACTION;
 USE `superclick`;
 INSERT INTO `superclick`.`telephone` (`id_user`, `num_telephone`) VALUES (1, '75982823518');
-INSERT INTO `superclick`.`telephone` (`id_user`, `num_telephone`) VALUES (2, '75981688846');
-INSERT INTO `superclick`.`telephone` (`id_user`, `num_telephone`) VALUES (3, '75991872233');
 
 COMMIT;
 

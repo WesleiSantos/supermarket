@@ -16,6 +16,7 @@ import ManagerOrders from '../components/users/managerOrders/ManagerOrders'
 import Log from '../components/users/log/Log'
 import ManagerUser from '../components/users/managerUsers/ManagerUser'
 import RegisterAddress from  '../components/login/screenRegister/RegisterAddress'
+import UpdateProduct from '../components/users/updateRegisterProduct/UpdateProdcutList'
 
 export default props =>
   <Router history = {history}>  
@@ -26,13 +27,14 @@ export default props =>
         <Route path='/register' component={Register} />
         <Route path='/changePassword' component={ChangePassword}/>
         <PrivateRoute path='/address' component={RegisterAddress} />
-        <Route path='/user/dashboard' component={DashboardUser} />
+        <PrivateRoute path='/user/dashboard' component={DashboardUser} />
         <PrivateRoute path='/user/registerProduct' component={RegisterProduct} />
         <PrivateRoute path='/user/managerProducts' component={ManagerProducts} />
         <PrivateRoute path='/user/managerPromotions' component={ManagerPromotions} />
         <PrivateRoute path='/user/managerOrders' component={ManagerOrders} />
         <PrivateRoute path='/user/log' component={Log} />
         <PrivateRoute path='/user/managerUser' component={ManagerUser} />
+        <PrivateRoute path='/user/updateProduct' component={UpdateProduct} />
         <Redirect from='*' to='/' />
     </Switch>
     </App>
