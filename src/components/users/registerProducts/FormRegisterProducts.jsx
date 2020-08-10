@@ -192,14 +192,6 @@ class FormRegisterProducts extends Component {
         </form>
         <form className="form-row" encType="multipart/form-data" role='form' >
           <div className="custom-file">
-            <img
-              alt=""
-              src={
-                this.props.initialValues.image === undefined
-                  ? ""
-                  : this.props.initialValues.image.secure_url
-              }
-            />
             <Field
               multiple="multiple"
               name="inputFile"
@@ -244,6 +236,7 @@ function mapStateToProps(state) {
       description_measure: state.product.description_measure,
       quantity: state.product.quantity,
       image: state.product.image,
+      imagePreviewUrl: state.product.image
     },
   };
 }

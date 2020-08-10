@@ -25,6 +25,7 @@ const initialState = {
   description_measure: undefined,
   quantity: undefined,
   image:undefined,
+  imagePreviewUrl: undefined,
   list:[]
 };
 
@@ -71,9 +72,10 @@ export const productReducer = (state = initialState, action) => {
         quantity: action.payload
       }
     case CLICK_ADD_PRODUCT_IMAGE:
+      console.log('productReducer',action.payload)
       return {
         ...state,
-        image: action.payload
+        imagePreviewUrl: action.payload
       };
     case CLICK_ADD_PRODUCT:
       return {
