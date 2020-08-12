@@ -72,7 +72,6 @@ export const productReducer = (state = initialState, action) => {
         quantity: action.payload
       }
     case CLICK_ADD_PRODUCT_IMAGE:
-      console.log('productReducer',action.payload)
       return {
         ...state,
         imagePreviewUrl: action.payload
