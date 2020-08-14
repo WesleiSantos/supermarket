@@ -9,22 +9,28 @@ import LabelAndInputFile from '../../form/labelAndInputFile'
 import { reduxForm, Field, formValueSelector } from "redux-form";
 
 const initialState = {
-  statusInput: false
+  statusInput: false,
+  img:undefined
 }
 
 class FormRegisterProducts extends Component {
   constructor(props) {
     super(props);
     this.state = initialState
+    this.changeState = this.changeState.bind(this)
   }
 
-  componentDidMount(){
+  changeState(value){
+    this.setState({img: value})
+  }
+
+  /*componentDidMount(){
     {this.props.initialValues.description_measure ? this.setState({statusInput:true}) : this.setState({statusInput:false})}
 
   }
   componentWillMount(){
     {this.props.initialValues.description_measure ? this.setState({statusInput:true}) : this.setState({statusInput:false})}
-  }
+  }*/
 
   render() {
     const { handleSubmit, readOnly } = this.props
@@ -189,11 +195,15 @@ class FormRegisterProducts extends Component {
           </Field>
         </form>
         <form className="form-row" encType="multipart/form-data" role='form' >
+        {this.state.img ? <div className="imgPreview">
+          <img src={this.state.img} />
+        </div>:''}
           <div className="custom-file">
             <Field
               multiple="multiple"
               name="inputFile"
               component={LabelAndInputFile}
+              componentFather={this.changeState}
             >
             </Field>
           </div>
@@ -234,7 +244,7 @@ function mapStateToProps(state) {
       description_measure: state.product.description_measure,
       quantity: state.product.quantity,
       image: state.product.image,
-      imagePreviewUrl: state.product.image
+      imagePreviewUrl: state.product.imagePreviewUrl
     },
   };
 }
