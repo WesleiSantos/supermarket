@@ -22,7 +22,7 @@ export default (props) => (
   <div className="home">
       <Main>
           <Header >
-            <Link to=""><i className="fa fa-shopping-cart fa-2x pr-5"></i></Link>
+            <Link to="dashboard/storeProducts"><i className="fa fa-shopping-cart fa-2x pr-5"></i></Link>
             <Link to="/login"><i className="fa fa-user-circle-o fa-2x"></i></Link>
           </Header>
           <Logo />

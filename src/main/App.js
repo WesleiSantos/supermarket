@@ -7,9 +7,13 @@ import Messages from "../components/message/message";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { handleLogout } from "../actions/actionLogin";
-
+import Routes from './Routes'
 const App = (props) => {
-  return props.type_user === 1 || props.type_user === undefined ? (
+  return (
+    <div className="app">
+      <Routes/>
+    </div>)
+  /*return props.type_user === 1 || props.type_user === undefined ? (
     <div className="app">
     <Messages />
     {props.children}
@@ -21,7 +25,7 @@ const App = (props) => {
         {props.children}
       </User>
     </div>
-  );
+  );*/
 };
 
 const mapStateToProps = (state) => ({
@@ -43,4 +47,4 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   );
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+  export default connect(mapStateToProps, mapDispatchToProps)( App);

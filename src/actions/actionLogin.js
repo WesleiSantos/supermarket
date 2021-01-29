@@ -44,11 +44,13 @@ export const fetchMy = () => {
 };
 
 export const handleLogout = () => {
+
   return (dispatch) => {
     api
       .post("/auth/logout")
       .then((response) => dispatch({ type: LOGIN_CLEAR }))
-      .then((resp) => dispatch(push("/login")))
+      //.then((resp) => dispatch(push("/login")))
+      .then((resp) => dispatch(history.push("/login")))
       .catch((error) => {
         toastr.error("Erro", error.response.data.error);
       });
