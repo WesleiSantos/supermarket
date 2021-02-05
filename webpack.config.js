@@ -13,11 +13,16 @@ module.exports = {
     app: SRC_DIR + '/index.js',
     vendor: ["react","react-dom"]
   } */
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    store: './src/storeProducts.js',
+    user: './src/user.js'
+  },
   output: {
     //path: path.resolve(__dirname, 'dist'),
-    //filename: '[name].js'
-    filename: "main.js",
+    filename: '[name].js',
+    //filename: "main.js",
+    chunkFilename: '[id].chunk.js',
     library: 'libary',
     publicPath: '/',
     path: path.resolve(__dirname, "dist"),
@@ -25,7 +30,13 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        {from:  /\/products/, to: path.resolve(__dirname + '/public/pages', '/store.html')},
+        {from:  /\/user/, to: path.resolve(__dirname + '/public/pages', '/user.html')}
+      ]
+    },
+    //historyApiFallback: true,
     noInfo: true,
     overlay: true,
     inline: true,
@@ -64,9 +75,12 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html', filename: 'index.html',
+      template: './public/pages/index.html', filename: 'index.html',
       favicon: './public/favicon.ico'
-    })
+    }),
+    new HtmlWebpackPlugin({template: './public/pages/store.html', filename:'store.html'}),
+    new HtmlWebpackPlugin({template: './public/pages/user.html', filename:'user.html'}),
+
   ],
   module: {
     rules: [
