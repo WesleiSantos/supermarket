@@ -91,7 +91,7 @@
     "flow-bin": "^0.127.0",
     "html-loader": "^1.1.0",
     "jsxobj": "^1.1.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react-redux": "^7.2.0",
     "react-redux-toastr": "^7.6.4",
